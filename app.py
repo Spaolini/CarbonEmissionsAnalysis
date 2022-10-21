@@ -32,8 +32,6 @@ def home():  # put application's code here
         elif CO2List[i] >= avg:
             CO2List[i] = 'high emitter'
 
-
-
     graph = px.pie(df, title='High Emitters vs Low Emitters', values='CO2_Emissions', names="Category")
     graphJSON = json.dumps(graph, cls=plotly.utils.PlotlyJSONEncoder)
     return render_template("home.html", graphJSON=graphJSON)
