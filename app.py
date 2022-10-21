@@ -24,7 +24,6 @@ def home():  # put application's code here
     CO2List = df.CO2_Emissions.tolist()
     # if df['Facility'].str.contains('Ford').any():
 
-
     for i in range(len(CO2List)):
         CO2List[i] = math.floor(CO2List[i] * 100)
         if CO2List[i] < avg:
