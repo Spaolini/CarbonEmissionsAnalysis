@@ -21,21 +21,20 @@ def landing():
 def home():  # put application's code here
     df = pd.read_csv("Data_Scaled.csv")
     avg = math.floor(df['CO2_Emissions'].mean() * 100)
-    print(avg)
     CO2List = df.CO2_Emissions.tolist()
     # if df['Facility'].str.contains('Ford').any():
 
     for i in range(len(CO2List)):
         CO2List[i] = math.floor(CO2List[i] * 100)
         if CO2List[i] < avg:
-            CO2List[i] = 0
+            CO2List[i] = 'low emitter'
 
         elif CO2List[i] >= avg:
-            CO2List[i] = 1
+            CO2List[i] = 'high emitter'
 
-    print(CO2List)
 
-    graph = px.pie(df, values='CO2_Emissions', names="Category")
+
+    graph = px.pie(df, title='High Emitters vs Low Emitters', values='CO2_Emissions', names="Category")
     graphJSON = json.dumps(graph, cls=plotly.utils.PlotlyJSONEncoder)
     return render_template("home.html", graphJSON=graphJSON)
 
