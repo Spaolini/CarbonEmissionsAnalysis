@@ -20,17 +20,22 @@ def landing():
 @app.route('/home.html')
 def home():  # put application's code here
     df = pd.read_csv("Data_Scaled.csv")
-    avg = math.floor(df['CO2_Emissions'].mean() * 100)
+    avgCO2 = math.floor(df['CO2_Emissions'].mean() * 100)
+    stdCO2 = df['CO2_Emissions'].std()
+    print(stdCO2)
     CO2List = df.CO2_Emissions.tolist()
-    # if df['Facility'].str.contains('Ford').any():
+
+    # avgCH4 = math.floor(df['CH4_Emissions'].mean() * 100)
+    # CH4LIst = df.CH4_Emissions.toList()
 
     for i in range(len(CO2List)):
-        CO2List[i] = math.floor(CO2List[i] * 100)
-        if CO2List[i] < avg:
+        # CO2List[i] = math.floor(CO2List[i] * 100)
+        if CO2List[i] < stdCO2 * 3:
             CO2List[i] = 'low emitter'
 
-        elif CO2List[i] >= avg:
+        elif CO2List[i] > stdCO2 * 3:
             CO2List[i] = 'high emitter'
+    print(CO2List)
 
     graph = px.pie(df, title='High Emitters vs Low Emitters', values='CO2_Emissions', names="Category")
     graphJSON = json.dumps(graph, cls=plotly.utils.PlotlyJSONEncoder)
@@ -44,3 +49,5 @@ def map_page():
 
 if __name__ == '__main__':
     app.run()
+
+#nvjkdfvbdfsjkvbfdsbvfbvn

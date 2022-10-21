@@ -1,4 +1,4 @@
-Year,Facility,City ,State ,Zip Code Region,Address,CO2_Emissions,Category,CH4 Emissions,N2O Emissions
+Year,Facility,City ,State ,Zip Code Region,Address,CO2_Emissions,Category,CH4_Emissions,N2O Emissions
 2020,Ford,Claycomo,MO,64100,8121 NE Highway 69,0.526981614,high emitter,0.000285948,0.05914795
 2020,Ford,Louisville,KY,40200,3001 Chamberlain Lane,0.588408029,high emitter,0.000320539,0.066293662
 2020,Ford,Louisville,KY,40200,2000 Fern Valley Road,0.364006287,low emitter,0.000196013,0.040572296
