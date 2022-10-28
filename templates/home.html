@@ -37,12 +37,18 @@ function closeNav() {
 }
 </script>
  <div id="chart" class="chart"></div>
+<div id="chart2" class="chart2"></div>
+
 </body>
 
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script type="text/javascript">
-    var graphs = {{graphJSON | safe}};
+    var graphs = {{chart | safe}};
     Plotly.plot('chart',graphs,{});
+
+    var graphs2 = {{chart2 | safe}};
+    Plotly.plot('chart2',graphs2,{});
+
 </script>
 </html>
