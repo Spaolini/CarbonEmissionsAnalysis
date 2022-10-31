@@ -38,6 +38,10 @@ function closeNav() {
 </script>
  <div id="chart" class="chart"></div>
 <div id="chart2" class="chart2"></div>
+<div id="chartCH4" class="chartCH4"></div>
+<div id="chartCH4_2" class="chartCH4_2"></div>
+<div id="chartN2O" class="chartN2O"></div>
+<div id="chartN2O_2" class="chartN2O_2"></div>
 
 </body>
 
@@ -49,6 +53,18 @@ function closeNav() {
 
     var graphs2 = {{chart2 | safe}};
     Plotly.plot('chart2',graphs2,{});
+
+    var graphs3 = {{chartCH4 | safe}};
+    Plotly.plot('chartCH4',graphs3,{});
+
+     var graphs4 = {{chartCH4_2 | safe}};
+    Plotly.plot('chartCH4_2',graphs4,{});
+
+    var graphs5 = {{chartN2O | safe}};
+    Plotly.plot('chartN2O',graphs5,{});
+
+     var graphs6 = {{chartN2O_2 | safe}};
+    Plotly.plot('chartN2O_2',graphs6,{});
 
 </script>
 </html>

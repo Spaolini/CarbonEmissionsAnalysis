@@ -1,4 +1,4 @@
-Year,Facility,City ,State ,Zip Code Region,Address,CO2_Emissions,CH4 Emissions,N2O Emissions
+Year,Facility,City ,State ,Zip Code Region,Address,CO2_Emissions,CH4_Emissions,N2O_Emissions
 2020, FORD KANSAS CITY ASSEMBLY PLANT,Claycomo,MO,64100,8121 NE Highway 69,0.526981614,0.000285948,0.05914795
 2020, FORD KENTUCKY TRUCK PLANT,Louisville,KY,40200,3001 Chamberlain Lane,0.588408029,0.000320539,0.066293662
 2020, FORD LOUISVILLE ASSEMBLY PLANT,Louisville,KY,40200,2000 Fern Valley Road,0.364006287,0.000196013,0.040572296
