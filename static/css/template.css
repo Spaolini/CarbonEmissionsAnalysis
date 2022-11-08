@@ -83,6 +83,34 @@ padding: 15px;
     width: 1200px;
     height: 1000px;
 }
+.chartCH4{
+     position: relative;
+    padding-top: 50px;
+    padding-left: 100px;
+    width: 1200px;
+    height: 1000px;
+}
+.chartCH4_2{
+     position: relative;
+    padding-top: 50px;
+    padding-left: 100px;
+    width: 1200px;
+    height: 1000px;
+}
+.chartN2O{
+     position: relative;
+    padding-top: 50px;
+    padding-left: 100px;
+    width: 1200px;
+    height: 1000px;
+}
+.chartN2O_2{
+     position: relative;
+    padding-top: 50px;
+    padding-left: 100px;
+    width: 1200px;
+    height: 1000px;
+}
 
 
 @media screen and (max-height: 450px) {

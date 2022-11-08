@@ -1,15 +1,10 @@
 import csv
 import json
-import math
 import pandas as pd
 import plotly
 import plotly.express as px
-from csv import writer
-import sqlite3
-from flask import Flask, render_template, current_app
-from plotly.offline import plot
-import plotly.graph_objs as go
-from dash import Dash, dcc, html, Input, Output
+from flask import Flask, render_template, current_app, request
+
 
 app = Flask(__name__)
 
@@ -19,12 +14,28 @@ def landing():
     return current_app.redirect("home.html")
 
 
-@app.route('/home.html')
+@app.route('/home.html', methods=["GET", "POST"])
 def home():  # put application's code here
-    df = pd.read_csv("Data_Scaled.csv")
+
+    if request.method == "POST":
+        Year = request.form["Year"]
+        Facility = request.form["Facility"]
+        City = request.form["City"]
+        State = request.form["State"]
+        Zipcode = request.form["Zipcode"]
+        Address = request.form["Address"]
+        CO2_Emissions = request.form["CO2_Emissions"]
+
+        fieldnames = ['Year', 'Facility', 'City', 'State', 'Zip Code Region', 'Address', 'CO2_Emissions']
+        with open('Data_Cleaned_updated.csv', 'a') as inFile:
+            writer = csv.DictWriter(inFile, fieldnames=fieldnames)
+            writer.writerow(
+                {'Year': Year, 'Facility': Facility, 'City': City, 'State': State, 'Zip Code Region': Zipcode,
+                 'Address': Address, 'CO2_Emissions': CO2_Emissions})
+
+    df = pd.read_csv("Data_Cleaned_updated.csv")
     # de = pd.read_csv("highEmitter.csv")
     df.head()
-
     # CO2 Analysis
     CO2List = df.CO2_Emissions.tolist()
     facList = df.Facility.tolist()
@@ -32,7 +43,7 @@ def home():  # put application's code here
 
     graph = px.bar(df, title="CO2 Emissions by Facility", x="Facility", y="CO2_Emissions", error_y="e")
     chart = json.dumps(graph, cls=plotly.utils.PlotlyJSONEncoder)
-
+    high_list = []
     for i in range(len(df)):
         if CO2List[i] > (df['CO2_Emissions'].mean() + (df['CO2_Emissions'].std() * 2)):
             print(facList[i])
