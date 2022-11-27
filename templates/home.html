@@ -6,6 +6,12 @@
     <title>AMCEI</title>
 
      <link rel="stylesheet" href="{{ url_for('static',    filename='css/template.css') }}">
+{#      <link rel="stylesheet" href=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+    </script>#}
+
 </head>
 <body>
 
@@ -36,52 +42,97 @@ function closeNav() {
   document.getElementById("main").style.marginRight= "0";
 }
 </script>
- <div id="chart" class="chart"></div>
+{#<button onclick="func()">button</button>#}
+{# <div id="chart" class="chart"></div>
 <div id="chart2" class="chart2"></div>
 <div id="chartCH4" class="chartCH4"></div>
 <div id="chartCH4_2" class="chartCH4_2"></div>
 <div id="chartN2O" class="chartN2O"></div>
-<div id="chartN2O_2" class="chartN2O_2"></div>
+<div id="chartN2O_2" class="chartN2O_2"></div>#}
 
-<form method="post">
-  Year: <input name="Year"/>
+<input type="button" onclick="load('graph.html')" value="Co2 Emissions"/>
+<input type="button" onclick="loadright('CO2_high.html')" value="Co2 High Emitters"/>
+<iframe id="my_iframe"></iframe>
+<iframe id="iframeright"></iframe>
+
+<script>
+function load(page) {
+  document.getElementById("my_iframe").src = page;
+}
+function loadright(page){
+    document.getElementById("iframeright").src = page;
+}
+</script>
+
+<form id="form" method="post">
+  Year: <br/>
+    <input id="f_year" name="Year"/>
   <br/><br/>
-  Facility: <input name="Facility"/>
+  Facility:<br/>
+    <input name="Facility"/>
   <br/><br/>
-   City: <input name="City"/>
+   City:<br/>
+    <input name="City"/>
   <br/><br/>
-  State: <input name="State"/>
+  State: <br/>
+    <input name="State"/>
   <br/><br/>
-   Zipcode: <input name="Zipcode"/>
+   Zipcode: <br/>
+    <input name="Zipcode"/>
   <br/><br/>
-  Address: <input name="Address"/>
+  Address: <br/>
+    <input name="Address"/>
   <br/><br/>
-    CO2 Emissions: <input name="CO2_Emissions"/>
+    CO2 Emissions: <br/>
+    <input name="CO2_Emissions"/>
+    <br/><br/>
+    CH4 Emissions: <br/>
+    <input name="CH4_Emissions"/>
+    <br/><br/>
+    N2O Emissions: <br/>
+    <input name="N2O_Emissions"/>
   <button type="submit">Submit</button>
 </form>
+
+
+
+
+
 
 </body>
 
 
+
+
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<script type="text/javascript">
-    var graphs = {{chart | safe}};
-    Plotly.plot('chart',graphs,{});
+ <script type="text/javascript">
+
+     var graphs = {{chart | safe}};
+     var co2_1 = Plotly.plot('chart', graphs, {});
 
     var graphs2 = {{chart2 | safe}};
     Plotly.plot('chart2',graphs2,{});
 
+
+
     var graphs3 = {{chartCH4 | safe}};
     Plotly.plot('chartCH4',graphs3,{});
+
+
 
      var graphs4 = {{chartCH4_2 | safe}};
     Plotly.plot('chartCH4_2',graphs4,{});
 
+
+
     var graphs5 = {{chartN2O | safe}};
     Plotly.plot('chartN2O',graphs5,{});
+
+
 
      var graphs6 = {{chartN2O_2 | safe}};
     Plotly.plot('chartN2O_2',graphs6,{});
 
-</script>
+ </script>
+
 </html>

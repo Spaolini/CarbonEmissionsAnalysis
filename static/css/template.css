@@ -68,7 +68,6 @@ margin-left: 50px;
 transition: margin-left .5s;
 padding: 15px;
 }
-
 .chart{
     position: relative;
     padding-top: 500px;
@@ -111,7 +110,43 @@ padding: 15px;
     width: 1200px;
     height: 1000px;
 }
+.mystyle {
+  width: 100%;
+  background-color: blue;
+  color: white;
+  font-size: 25px;
+}
+#map{
+    padding-top: 250px;
+    padding-left: 200px;
+    height: 1200px;
+    width: 1400px;
+    border: none;
+}
+#my_iframe{
+    position: relative;
+padding-top: 500px;
+    padding-left: -100px;
+    border: #243447;
+    width: 50%;
+    height:800px;
+    scale: 90%;
+    left: -250px;
 
+}
+#iframeright{
+    position: absolute;
+    padding-top: 500px;
+    padding-left: -200px;
+    border: none;
+    width: 50%;
+    height:800px;
+    scale: 90%;
+}
+
+#form{
+    padding-top: 1000px;
+}
 
 @media screen and (max-height: 450px) {
 .sidenav {padding-top: 15px;}
