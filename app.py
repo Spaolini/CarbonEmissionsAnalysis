@@ -52,6 +52,9 @@ def return_graphN2O():
 @app.route('/graphN2O_2.html')
 def return_graphN2O_2():
     return render_template('graphN2O_2.html')
+@app.route('/Select_view.html')
+def return_Select_view():
+    return render_template('Select_view.html')
 @app.route('/home.html', methods=["GET", "POST"])
 def home():  # put application's code here
 

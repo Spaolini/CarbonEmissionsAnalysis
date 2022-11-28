@@ -6,11 +6,8 @@
     <title>AMCEI</title>
 
      <link rel="stylesheet" href="{{ url_for('static',    filename='css/template.css') }}">
-{#      <link rel="stylesheet" href=
-"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src=
-"https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
-    </script>#}
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
 </head>
 <body>
@@ -21,9 +18,6 @@
     <a href="home.html">Home</a>
   <a href="map.html">locations</a>
     <a href="map.html">about</a>
-
-
-
 </div>
 
 <div id="main" class="mainHeader">
@@ -42,66 +36,96 @@ function closeNav() {
   document.getElementById("main").style.marginRight= "0";
 }
 </script>
-{#<button onclick="func()">button</button>#}
-{# <div id="chart" class="chart"></div>
-<div id="chart2" class="chart2"></div>
-<div id="chartCH4" class="chartCH4"></div>
-<div id="chartCH4_2" class="chartCH4_2"></div>
-<div id="chartN2O" class="chartN2O"></div>
-<div id="chartN2O_2" class="chartN2O_2"></div>#}
 
-<input type="button" onclick="load('graph.html')" value="Co2 Emissions"/>
-<input type="button" onclick="loadright('CO2_high.html')" value="Co2 High Emitters"/>
-<iframe id="my_iframe"></iframe>
-<iframe id="iframeright"></iframe>
+<div id="dropdowntop">
+    <select id="selector">
+    <option value="http://127.0.0.1:5000/Select_view.html">select view</option>
+    <option value="http://127.0.0.1:5000/graph.html">CO2 Emissions by Facility</option>
+    <option value="http://127.0.0.1:5000/CO2_high.html">CO2 High Emitters</option>
+    <option value="http://127.0.0.1:5000/graphCH4.html">CH4 Emissions by Facility</option>
+    <option value="http://127.0.0.1:5000/graphCH4_2.html">CH4 High Emitters</option>
+     <option value="http://127.0.0.1:5000/graphN2O.html">N2O Emissions by Facility</option>
+    <option value="http://127.0.0.1:5000/graphN2O_2.html">N2O High Emitters</option>
+</select>
+
+</div>
+
+<iframe id="iframetop" scrolling="no"  src="about:blank" frameborder="0" ></iframe>
+
+<div id="dropdown2">
+    <select id="selector2">
+    <option value="http://127.0.0.1:5000/Select_view.html">select view</option>
+    <option value="http://127.0.0.1:5000/graph.html">CO2 Emissions by Facility</option>
+    <option value="http://127.0.0.1:5000/CO2_high.html">CO2 High Emitters</option>
+    <option value="http://127.0.0.1:5000/graphCH4.html">CH4 Emissions by Facility</option>
+    <option value="http://127.0.0.1:5000/graphCH4_2.html">CH4 High Emitters</option>
+     <option value="http://127.0.0.1:5000/graphN2O.html">N2O Emissions by Facility</option>
+    <option value="http://127.0.0.1:5000/graphN2O_2.html">N2O High Emitters</option>
+</select>
+
+</div>
+ <iframe id="iframe2" scrolling="no" src="about:blank" frameborder="0" ></iframe>
 
 <script>
-function load(page) {
-  document.getElementById("my_iframe").src = page;
-}
-function loadright(page){
-    document.getElementById("iframeright").src = page;
-}
+
+$(document).ready(function(){
+    $("#selector").change(function(){
+        $("#iframetop").attr("src", $(this).val());
+    });
+});
+
+$(document).ready(function(){
+    $("#selector").show(function(){
+        $("#iframetop").attr("src", $(this).val());
+    });
+});
+
+$(document).ready(function(){
+    $("#selector2").change(function(){
+        $("#iframe2").attr("src", $(this).val());
+    });
+});
+$(document).ready(function(){
+    $("#selector2").show(function(){
+        $("#iframe2").attr("src", $(this).val());
+    });
+});
 </script>
 
-<form id="form" method="post">
+<div id="entry">
+     <form id="form" method="post">
   Year: <br/>
-    <input id="f_year" name="Year"/>
+    <input class="input" id="f_year" name="Year"/>
   <br/><br/>
   Facility:<br/>
-    <input name="Facility"/>
+    <input class="input" name="Facility"/>
   <br/><br/>
    City:<br/>
-    <input name="City"/>
+    <input class="input"  name="City"/>
   <br/><br/>
   State: <br/>
-    <input name="State"/>
+    <input class="input"  name="State"/>
   <br/><br/>
    Zipcode: <br/>
-    <input name="Zipcode"/>
+    <input class="input"  name="Zipcode"/>
   <br/><br/>
   Address: <br/>
-    <input name="Address"/>
+    <input class="input"  name="Address"/>
   <br/><br/>
     CO2 Emissions: <br/>
-    <input name="CO2_Emissions"/>
+    <input class="input"  name="CO2_Emissions"/>
     <br/><br/>
     CH4 Emissions: <br/>
-    <input name="CH4_Emissions"/>
+    <input class="input"  name="CH4_Emissions"/>
     <br/><br/>
     N2O Emissions: <br/>
-    <input name="N2O_Emissions"/>
-  <button type="submit">Submit</button>
+    <input class="input"  name="N2O_Emissions"/>
+  <button id="submit" type="submit">Submit</button>
 </form>
-
-
-
-
+</div>
 
 
 </body>
-
-
 
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>

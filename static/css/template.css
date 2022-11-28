@@ -120,33 +120,116 @@ padding: 15px;
     padding-top: 250px;
     padding-left: 200px;
     height: 1200px;
-    width: 1400px;
+    width: 100%;
     border: none;
+    scale: 75%;
 }
 #my_iframe{
     position: relative;
 padding-top: 500px;
-    padding-left: -100px;
-    border: #243447;
-    width: 50%;
+    border: none;
+    width: 100%;
     height:800px;
     scale: 90%;
-    left: -250px;
 
 }
 #iframeright{
-    position: absolute;
-    padding-top: 500px;
-    padding-left: -200px;
+    position: relative;
+    padding-top: 50px;
     border: none;
-    width: 50%;
+    width: 100%;
     height:800px;
     scale: 90%;
 }
 
 #form{
-    padding-top: 1000px;
+    position: relative;
+    padding-left: 20px;
+    padding-top: 100px;
+    padding-bottom: 200px;
+
 }
+#iframetop{
+    position: relative;
+    padding-top: 20px;
+    width: 100%;
+    height: 800px;
+    scale: 90%;
+}
+#selector{
+    position: relative;
+}
+#dropdowntop{
+    position: relative;
+    padding-top: 250px;
+    padding-left: 50px;
+}
+
+#iframe2{
+    position: relative;
+    padding-top: 25px;
+    padding-left: -500px;
+    width: 100%;
+    height: 800px;
+    scale: 90%;
+    overflow-y: hidden;
+}
+#selector2{
+    position: relative;
+}
+#dropdown2{
+    position: relative;
+    padding-left: 100px;
+    top: -825px;
+    left: 200px;
+}
+
+#view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    border-style: dashed;
+    border-color: #243447;
+    scale: 90%;
+    font-size:32px;
+}
+body{
+    overflow-x: hidden;
+}
+.input {
+  width: 15%;
+  padding: 8px 16px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+    color: white;
+}
+.input:focus{
+    background-color: lightgray;
+
+}
+#entry{
+    background-color: #243447;
+    color: white;
+}
+#submit{
+    color: #243447;
+    background-color: white;
+    border-radius: 8px;
+    border: none;
+    width: 100px;
+    height: 30px;
+
+}
+#submit:hover{
+    background-color: lightgray;
+    transition: 0.3s;
+}
+
 
 @media screen and (max-height: 450px) {
 .sidenav {padding-top: 15px;}
