@@ -71,8 +71,14 @@ def home():  # put application's code here
 
         fieldnames = ['Year', 'Facility', 'City', 'State', 'Zip Code Region', 'Address', 'CO2_Emissions',
                       'CH4_Emissions', 'N2O_Emissions']
-        with open('Data_Cleaned_updated.csv', 'a') as file:
+        with open('Data_Cleaned_updated.csv', 'a') as file, open('Data_Cleaned(10.28).csv', 'a') as fileB:
             writer = csv.DictWriter(file, fieldnames=fieldnames)
+            writer.writerow(
+                {'Facility': Facility,'Year': Year,  'City': City, 'State': State, 'Zip Code Region': Zipcode,
+                 'Address': Address, 'CO2_Emissions': CO2_Emissions, 'CH4_Emissions': CH4_Emissions, 'N2O_Emissions':
+                     N2O_Emissions})
+
+            writer = csv.DictWriter(fileB, fieldnames=fieldnames)
             writer.writerow(
                 {'Facility': Facility,'Year': Year,  'City': City, 'State': State, 'Zip Code Region': Zipcode,
                  'Address': Address, 'CO2_Emissions': CO2_Emissions, 'CH4_Emissions': CH4_Emissions, 'N2O_Emissions':
