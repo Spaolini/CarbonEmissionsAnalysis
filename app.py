@@ -4,7 +4,7 @@ import math
 import os
 import sys
 import dash
-import dash_core_components as dcc
+from dash import dcc
 import pandas as pd
 import plotly
 import plotly.express as px
@@ -74,9 +74,10 @@ def home():  # put application's code here
         with open('Data_Cleaned_updated.csv', 'a') as file:
             writer = csv.DictWriter(file, fieldnames=fieldnames)
             writer.writerow(
-                {'Year': Year, 'Facility': Facility, 'City': City, 'State': State, 'Zip Code Region': Zipcode,
+                {'Facility': Facility,'Year': Year,  'City': City, 'State': State, 'Zip Code Region': Zipcode,
                  'Address': Address, 'CO2_Emissions': CO2_Emissions, 'CH4_Emissions': CH4_Emissions, 'N2O_Emissions':
                      N2O_Emissions})
+            return 'Thanks for your Input!'
 
     df = pd.read_csv("Data_Cleaned_updated.csv")
     # CO2 Analysis
@@ -190,4 +191,5 @@ server.layout = dcc.Graph(figure=figure(), style={"width": "100%", "height": "10
 
 
 if __name__ == '__main__':
-    server.run_server()
+    server.run_server(port=5000)
+
