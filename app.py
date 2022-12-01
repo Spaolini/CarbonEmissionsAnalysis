@@ -71,7 +71,7 @@ def home():  # put application's code here
 
         fieldnames = ['Year', 'Facility', 'City', 'State', 'Zip Code Region', 'Address', 'CO2_Emissions',
                       'CH4_Emissions', 'N2O_Emissions']
-        with open('Data_Cleaned_updated.csv', 'a') as file, open('Data_Cleaned(10.28).csv', 'a') as fileB:
+        with open('Data_Cleaned_updated.csv', 'a', newline='') as file, open('Data_Cleaned(10.28).csv', 'a', newline='') as fileB:
             writer = csv.DictWriter(file, fieldnames=fieldnames)
             writer.writerow(
                 {'Facility': Facility,'Year': Year,  'City': City, 'State': State, 'Zip Code Region': Zipcode,
@@ -83,7 +83,7 @@ def home():  # put application's code here
                 {'Facility': Facility,'Year': Year,  'City': City, 'State': State, 'Zip Code Region': Zipcode,
                  'Address': Address, 'CO2_Emissions': CO2_Emissions, 'CH4_Emissions': CH4_Emissions, 'N2O_Emissions':
                      N2O_Emissions})
-            return 'Thanks for your Input!'
+            return render_template('confirmation.html')
 
     df = pd.read_csv("Data_Cleaned_updated.csv")
     # CO2 Analysis
