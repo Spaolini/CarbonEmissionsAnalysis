@@ -1,8 +1,10 @@
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
-import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
+import plotly.express as px
+import plotly.graph_objects as go
+
 
 # import data
 ds = pd.read_csv('Data_Cleaned(10.28).csv')
@@ -14,35 +16,46 @@ ds.drop(ds.columns[[0, 1, 2, 3, 5]], axis=1, inplace=True)
 ds.head()
 # scale features
 scaler = MinMaxScaler()
-ds[['CO2 Emissions', 'CH4 Emissions', 'N2O Emissions']] = scaler.fit_transform(
-    ds[['CO2 Emissions', 'CH4 Emissions', 'N2O Emissions']])
+ds[['CO2_Emissions', 'CH4_Emissions', 'N2O_Emissions']] = scaler.fit_transform(
+    ds[['CO2_Emissions', 'CH4_Emissions', 'N2O_Emissions']])
 
 # convert Category data to Numerical
 ds['Category'] = ds['Category'].map({'low emitter' : 0, 'high emitter' : 1})
 
+# kmeans predict to determine CO2 emissions based on zip code and methane
 # perform KMeans
 k_mean = KMeans(random_state=42, n_init=5, max_iter=100, n_clusters=5)
 k_mean.fit(ds)
-ds.head()
 
 # Insert new column to store cluster info
 identified_clusters = k_mean.fit_predict(ds)
 ds['Cluster_int'] = identified_clusters
 
-# kmeans predict to determine CO2 emissions based on zip code and methane
+# define variable to run kmeans analysis on
 X = ds.iloc[:,[0,1,2]].values
 
 y = k_mean.fit_predict(X)
 
-fig = plt.figure(figsize = (10,10))
-ax = fig.add_subplot(111, projection='3d')
-ax.scatter(X[y == 0,0],X[y == 0,1],X[y == 0,2], s = 40 , color = 'red', label = "cluster 1")
-ax.scatter(X[y == 1,0],X[y == 1,1],X[y == 1,2], s = 40 , color = 'blue', label = "cluster 2")
-ax.scatter(X[y == 2,0],X[y == 2,1],X[y == 2,2], s = 40 , color = 'green', label = "cluster 3")
-ax.scatter(X[y == 3,0],X[y == 3,1],X[y == 3,2], s = 40 , color = 'yellow', label = "cluster 4")
-ax.scatter(X[y == 4,0],X[y == 4,1],X[y == 4,2], s = 40 , color = 'purple', label = "cluster 5")
-ax.set_xlabel('Zip Code Region-->')
-ax.set_ylabel('Carbon Emissions-->')
-ax.set_zlabel('Methane Emissions-->')
-ax.legend()
-plt.show()
+
+
+xdata = ds.loc[:, 'Zip Code Region']
+ydata = ds['CO2_Emissions']
+zdata = ds.loc[:, 'CH4_Emissions']
+
+# Visualize kmeans clusters with Plotly
+
+fig = go.Figure(data=[go.Scatter3d(x=xdata,
+    y=ydata,
+    z=zdata,
+    mode='markers', marker=dict(size=8,
+                                color=ds['Cluster_int'],
+                                opacity=0.7)
+)])
+
+fig.update_layout(title='Kmeans Clustering of Emissions and Zip Code Region',
+scene = dict(
+    xaxis_title='ZIP CODE REGION',
+    yaxis_title='CO2 EMISSIONS',
+    zaxis_title='CH4 EMISSIONS'),
+)
+fig.show()
