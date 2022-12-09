@@ -17,7 +17,7 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="home.html">Home</a>
   <a href="map.html">locations</a>
-    <a href="map.html">about</a>
+    <a href="about.html">about</a>
 </div>
 
 <div id="main" class="mainHeader">
@@ -38,33 +38,69 @@ function closeNav() {
 </script>
 
 <div id="dropdowntop">
-    <select id="selector">
+    <select id="selector" class="form-control">
     <option value="http://127.0.0.1:5000/Select_view.html">select view</option>
-    <option value="http://127.0.0.1:5000/graph.html">CO2 Emissions by Facility</option>
+        <optgroup label="CO2 Emissions">
+    <option value="http://127.0.0.1:5000/graph_CO2.html">CO2 Emissions by Facility</option>
     <option value="http://127.0.0.1:5000/CO2_high.html">CO2 High Emitters</option>
+    <option value="http://127.0.0.1:5000/CO2_low.html">CO2 Low Emitters</option>
+        <option value="http://127.0.0.1:5000/CO2_table.html">CO2 table</option>
+        <option value="http://127.0.0.1:5000/CO2_high_table.html">CO2 High Emissions table</option>
+        <option value="http://127.0.0.1:5000/CO2_low_table.html">CO2 Low Emissions table</option></optgroup>
+        <optgroup label="CH4 Emissions">
     <option value="http://127.0.0.1:5000/graphCH4.html">CH4 Emissions by Facility</option>
     <option value="http://127.0.0.1:5000/graphCH4_2.html">CH4 High Emitters</option>
+        <option value="http://127.0.0.1:5000/CH4_low.html">CH4 Low Emitters</option>
+        <option value="http://127.0.0.1:5000/CH4_table.html">CH4 Emissions table</option>
+        <option value="http://127.0.0.1:5000/CH4_high_table.html">CH4 High Emissions table</option>
+        <option value="http://127.0.0.1:5000/low_CH4_table.html">CH4 Low Emissions table</option></optgroup>
+         <optgroup label="N2O Emissions">
      <option value="http://127.0.0.1:5000/graphN2O.html">N2O Emissions by Facility</option>
     <option value="http://127.0.0.1:5000/graphN2O_2.html">N2O High Emitters</option>
+        <option value="http://127.0.0.1:5000/graphN2O_low.html">N2O Low Emitters</option>
+         <option value="http://127.0.0.1:5000/N2O_table.html">N2O Emissions table</option>
+             <option value="http://127.0.0.1:5000/high_N2O_table.html">N2O High Emissions table</option>
+          <option value="http://127.0.0.1:5000/low_N2O_table.html">N2O Low Emissions table</option>
+         </optgroup>
+        <option value="http://127.0.0.1:5000/SVM.html">SVM</option>
+        <option value="http://127.0.0.1:5000/kmeans.html">Kmeans</option>
 </select>
 
 </div>
 
-<iframe id="iframetop" scrolling="no"  src="about:blank" frameborder="0" ></iframe>
+<iframe id="iframetop"  src="about:blank" frameborder="0" ></iframe>
 
 <div id="dropdown2">
-    <select id="selector2">
+    <select id="selector2" class="form-control">
     <option value="http://127.0.0.1:5000/Select_view.html">select view</option>
-    <option value="http://127.0.0.1:5000/graph.html">CO2 Emissions by Facility</option>
+        <optgroup label="CO2 Emissions">
+    <option value="http://127.0.0.1:5000/graph_CO2.html">CO2 Emissions by Facility</option>
     <option value="http://127.0.0.1:5000/CO2_high.html">CO2 High Emitters</option>
+    <option value="http://127.0.0.1:5000/CO2_low.html">CO2 Low Emitters</option>
+        <option value="http://127.0.0.1:5000/CO2_table.html">CO2 table</option>
+        <option value="http://127.0.0.1:5000/CO2_high_table.html">CO2 High Emissions table</option>
+        <option value="http://127.0.0.1:5000/CO2_low_table.html">CO2 Low Emissions table</option></optgroup>
+        <optgroup label="CH4 Emissions">
     <option value="http://127.0.0.1:5000/graphCH4.html">CH4 Emissions by Facility</option>
     <option value="http://127.0.0.1:5000/graphCH4_2.html">CH4 High Emitters</option>
+        <option value="http://127.0.0.1:5000/CH4_low.html">CH4 Low Emitters</option>
+        <option value="http://127.0.0.1:5000/CH4_table.html">CH4 Emissions table</option>
+        <option value="http://127.0.0.1:5000/CH4_high_table.html">CH4 High Emissions table</option>
+        <option value="http://127.0.0.1:5000/low_CH4_table.html">CH4 Low Emissions table</option></optgroup>
+         <optgroup label="N2O Emissions">
      <option value="http://127.0.0.1:5000/graphN2O.html">N2O Emissions by Facility</option>
     <option value="http://127.0.0.1:5000/graphN2O_2.html">N2O High Emitters</option>
+        <option value="http://127.0.0.1:5000/graphN2O_low.html">N2O Low Emitters</option>
+         <option value="http://127.0.0.1:5000/N2O_table.html">N2O Emissions table</option>
+             <option value="http://127.0.0.1:5000/high_N2O_table.html">N2O High Emissions table</option>
+          <option value="http://127.0.0.1:5000/low_N2O_table.html">N2O Low Emissions table</option>
+         </optgroup>
+        <option value="http://127.0.0.1:5000/SVM.html">SVM</option>
+        <option value="http://127.0.0.1:5000/kmeans.html">Kmeans</option>
 </select>
 
 </div>
- <iframe id="iframe2" scrolling="no" src="about:blank" frameborder="0" ></iframe>
+ <iframe id="iframe2" src="about:blank" frameborder="0" ></iframe>
 
 <section class="container my-5">
     <h3>Input New Data</h3>
@@ -200,42 +236,7 @@ $(document).ready(function(){
     });
 });
 </script>
-
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-
-
-
 </body>
-
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
- <script type="text/javascript">
-
-     var graphs = {{chart | safe}};
-     var co2_1 = Plotly.plot('chart', graphs, {});
-
-    var graphs2 = {{chart2 | safe}};
-    Plotly.plot('chart2',graphs2,{});
-
-
-
-    var graphs3 = {{chartCH4 | safe}};
-    Plotly.plot('chartCH4',graphs3,{});
-
-
-
-     var graphs4 = {{chartCH4_2 | safe}};
-    Plotly.plot('chartCH4_2',graphs4,{});
-
-
-
-    var graphs5 = {{chartN2O | safe}};
-    Plotly.plot('chartN2O',graphs5,{});
-
-
-
-     var graphs6 = {{chartN2O_2 | safe}};
-    Plotly.plot('chartN2O_2',graphs6,{});
-
- </script>
 </html>
