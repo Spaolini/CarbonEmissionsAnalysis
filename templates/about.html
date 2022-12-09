@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+     <link rel="stylesheet" href="{{ url_for('static',    filename='css/template.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <h2 id="h2Header">Data Source</h2>
+</head>
+<body>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="home.html">Home</a>
+  <a href="map.html">locations</a>
+    <a href="about.html">about</a>
+</div>
+
+<div id="main" class="mainHeader">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+     <h1 id="siteHeader">About</h1>
+</div>
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginRight = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginRight= "0";
+}
+</script>
+    <p id="aboutext">“The Greenhouse Gas Reporting Program (GHGRP) collects Greenhouse Gas (GHG) data from large emitting facilities, suppliers of fossil fuels and industrial gases that result in GHG emissions when used, and facilities that inject carbon dioxide underground.”
+
+United States Environmental Protection Agency (2020). Greenhouse Gas Reporting Program 2010-2022 [Excel data sets].  https://www.epa.gov/ghgreporting/data-sets
+</p>
+
+</body>
+</html>
